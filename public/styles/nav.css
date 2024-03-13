@@ -1,31 +1,51 @@
-/* to do: align double down below "write a new tweet" */
+/* to do: align double down below "write a new tweet"
+
+few areas that could be improved:
+
+    In your nav.css, you've used float: left and float: right to position your elements. While this works, it's not the most modern or flexible approach. Consider using Flexbox instead, which allows for more control and responsiveness. You can use display: flex; on your nav element, and then use justify-content: space-between; to position your elements on the far left and right.
+
+    The line-height property you've used to vertically center your text and icon is a bit of a hack and can lead to issues if your nav height changes. With Flexbox, you can use align-items: center; on your nav to vertically center your items.
+
+    The requirement specifies that the font color should be #FFFFFF, but you've set the color of your angle-double-down icon to rgb(255, 77, 0). You might want to adjust this to meet the requirement.
+
+    The requirement also specifies that the <span> within the <nav> should use Bungee as its default font-family. However, you've set the font-family of .right-text to Source Sans 3. You might want to adjust this to meet the requirement.
+*/
 
 
 nav {
+  position: fixed;
   color: #FFFFFF;
   background-color: #4056A1;
   height: 120px;
   width: 100%;
   padding-left: 1.5em;
   padding-right: 1.5em;
- 
 }
 
 .left-text {
   float: left;
-  font-family: bungee;
+  font-family: 'Bungee', sans-serif;
   font-size: 35px;
-  line-height: 135px;
+  line-height: 120px; 
+}
+
+.right-container {
+  float: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.write-tweet-container {
+  margin-bottom: 5px; 
 }
 
 .right-text {
-  float: right;
-  font-family: Source Sans 3;
-  line-height: 120px;
+  font-family: 'Source Sans 3', sans-serif;
 }
 
 .fa-angle-double-down {
-  float:right;
-  line-height: 120px;
-  color: rgb(255, 77, 0)
+  color: rgb(255, 77, 0);
 }

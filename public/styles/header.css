@@ -1,0 +1,22 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(236, 151, 4);
+  margin: 0;
+  padding: 0;
+  height: 520px;
+  width: 100%;
+}
+
+.profile-container {
+  text-align: center;
+  margin-top: 150px;
+}
+.profile-picture {
+  margin-bottom: 5px
+}
+
+.name {
+ margin-top: 5px;
+}

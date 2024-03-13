@@ -1,0 +1,31 @@
+/* to do: align double down below "write a new tweet" */
+
+
+nav {
+  color: #FFFFFF;
+  background-color: #4056A1;
+  height: 120px;
+  width: 100%;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+ 
+}
+
+.left-text {
+  float: left;
+  font-family: bungee;
+  font-size: 35px;
+  line-height: 135px;
+}
+
+.right-text {
+  float: right;
+  font-family: Source Sans 3;
+  line-height: 120px;
+}
+
+.fa-angle-double-down {
+  float:right;
+  line-height: 120px;
+  color: rgb(255, 77, 0)
+}

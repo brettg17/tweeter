@@ -1,3 +1,30 @@
-h2{
-  color: grey;
+.container{
+  width: 100%;
+  color: rgb(63, 61, 61);
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+label {
+  padding-top: 15px;
+}
+
+tweet-text  {
+ width: 100%;
+ border-bottom: solid;
+}
+
+
+button {
+  float: left;
+  background-color: #4056A1;
+  color:  #FFFFFF;
+  font-family: 'Bungee', sans-serif;
+  font-size: 18px;
+
+}
+
+output {
+  float: right;
+  font-family: 'Bungee', sans-serif;
 }

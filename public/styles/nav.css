@@ -18,11 +18,10 @@ nav {
   background-color: #4056A1;
   height: 120px;
   width: 100%;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
 }
 
 .left-text {
+  padding-left: 1.5em;
   float: left;
   font-family: 'Bungee', sans-serif;
   font-size: 35px;
@@ -39,6 +38,7 @@ nav {
 }
 
 .write-tweet-container {
+  padding-right: 1.5em;
   margin-bottom: 5px; 
 }
 

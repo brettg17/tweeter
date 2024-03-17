@@ -9,7 +9,7 @@ label {
   padding-top: 15px;
 }
 
-tweet-text  {
+#tweet-text  {
  width: 100%;
  border-bottom: solid;
 }
@@ -27,4 +27,8 @@ button {
 output {
   float: right;
   font-family: 'Bungee', sans-serif;
+}
+
+.negative {
+  color: red;
 }

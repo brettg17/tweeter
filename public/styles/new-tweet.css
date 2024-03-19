@@ -1,21 +1,46 @@
-.container{
+/* Reset some basic elements to ensure a consistent layout across browsers */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Optional: If using Flexbox for your body layout */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Styles for your main container */
+.container {
+  flex-grow: 1; /* Only needed if you're going with the Flexbox layout */
+  min-height: 100vh; /* Use this if not using Flexbox, and want the container to fill the viewport */
   width: 100%;
   color: rgb(63, 61, 61);
   padding-left: 1.5em;
   padding-right: 1.5em;
 }
-
+.new-tweet{
+  width: 100%;
+}
 label {
   padding-top: 15px;
 }
 
 #tweet-text  {
- width: 100%;
- border-bottom: solid;
+  width: 100%;
+  border: none; 
+  outline: none;
+  background-color: transparent; 
+  resize: none; 
+  color: black;
+  border-bottom: 2px solid black;
 }
 
 
 button {
+  
   float: left;
   background-color: #4056A1;
   color:  #FFFFFF;

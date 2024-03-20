@@ -3,36 +3,9 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-
-const tweetData = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
-
 const createTweetElement = (tweetData) => { 
   let $tweet = $( 
-  `<article class="tweets-container">
+  `<div class="tweet-container">
     <div class="user-info">
       <div class="left-section">
         <img src=${tweetData.user.avatars} class="user-picture" alt="Profile Picture">
@@ -48,23 +21,58 @@ const createTweetElement = (tweetData) => {
     <br>
     <div class="tweet-footer">
       <label class="time" for="time">${tweetData.created_at}</label>
-      <div class="icons">
+     <div class="icons">
         <i class="fa-solid fa-flag"></i>
         <i class="fa-solid fa-retweet"></i>
         <i class="fa-solid fa-heart"></i>
       </div>
     </div>
-  </article>
+    </div>
   `);
 
   return $tweet;
 };
 
-const renderTweets = (tweets) => tweets.map(createTweetElement);
+const renderTweets = (tweets) => tweets.map(tweet => createTweetElement(tweet));
  
 $(document).ready(() => {
-  const tweets = renderTweets(tweetData); 
-  for (const tweet of tweets) {
-    $("section").append(tweet); 
-  }
+
+  $("form").submit(function(event){
+    event.preventDefault();
+    const formData = $(this).serialize();
+    console.log(formData)
+    $.ajax({
+      method: "POST",
+      url: "/tweets",
+      data: formData
+    })
+  
+    .then((res) => {
+      fetchTweets();
+      $("#tweet-text").val("");
+ 
+    })
+    .catch((err) =>console.log(err))
+  });
+
+  function fetchTweets() {
+  $.ajax({
+    method: "GET",
+    url: "/tweets",
+  })
+
+  .then((res) => {
+    $(".tweets-container").empty(); // Clear the section
+    const tweets = renderTweets(res); 
+    for (const tweet of tweets) {
+      $(".tweets-container").prepend(tweet); 
+    }
+    console.log(res)
+  
+  })
+  .catch((err) =>console.log(err))
+  };
+fetchTweets();
+ 
 });
+

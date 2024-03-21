@@ -4,6 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 const createTweetElement = (tweetData) => { 
+  const timeAgoString = timeago.format(tweetData.created_at);
   let $tweet = $( 
   `<div class="tweet-container">
     <div class="user-info">
@@ -20,7 +21,7 @@ const createTweetElement = (tweetData) => {
     </div>
     <br>
     <div class="tweet-footer">
-      <label class="time" for="time">${tweetData.created_at}</label>
+      <label class="timeago" for="timeago">${timeAgoString}</label>
      <div class="icons">
         <i class="fa-solid fa-flag"></i>
         <i class="fa-solid fa-retweet"></i>
@@ -48,14 +49,14 @@ $(document).ready(() => {
     })
   
     .then((res) => {
-      fetchTweets();
+      loadTweets();
       $("#tweet-text").val("");
  
     })
     .catch((err) =>console.log(err))
   });
 
-  function fetchTweets() {
+  function loadTweets() {
   $.ajax({
     method: "GET",
     url: "/tweets",
@@ -72,7 +73,7 @@ $(document).ready(() => {
   })
   .catch((err) =>console.log(err))
   };
-fetchTweets();
+loadTweets();
  
 });
 

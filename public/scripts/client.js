@@ -40,6 +40,17 @@ $(document).ready(() => {
 
   $("form").submit(function(event){
     event.preventDefault();
+
+    const $text = $("#tweet-text").val().trim();
+    const textLength = $text.length
+
+    if (textLength === 0){
+      alert("Do you have nothing to say??"); // Show an alert if there is no text
+    }
+    else if (textLength > 140) {
+      alert("That was a bit much..."); // Show an alert if the text length is too long
+    }
+    else{
     const formData = $(this).serialize();
     console.log(formData)
     $.ajax({
@@ -54,6 +65,7 @@ $(document).ready(() => {
  
     })
     .catch((err) =>console.log(err))
+  }
   });
 
   function loadTweets() {
@@ -76,4 +88,5 @@ $(document).ready(() => {
 loadTweets();
  
 });
+
 

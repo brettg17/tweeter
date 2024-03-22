@@ -17,7 +17,7 @@ const createTweetElement = (tweetData) => {
       </div>
     </div>  
     <div class="user-tweet">
-      <label for="user-tweet">${tweetData.content.text}</label>
+      <label for="user-tweet">${$("<div>").text(tweetData.content.text).html()}</label>
     </div>
     <br>
     <div class="tweet-footer">

@@ -57,3 +57,12 @@ output {
 .negative {
   color: red;
 }
+
+#error-message {
+  width: 100%;
+  display: flex;
+  color: red; 
+  font-size: 18px; 
+  border: 2px solid red;
+  margin-top: 5px; 
+}

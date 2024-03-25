@@ -43,12 +43,13 @@ $(document).ready(() => {
 
     const $text = $("#tweet-text").val().trim();
     const textLength = $text.length
+    let errorMessage = "";
 
     if (textLength === 0){
-      alert("Do you have nothing to say??"); // Show an alert if there is no text
+      errorMessage = "Do you have nothing to say??"; 
     }
     else if (textLength > 140) {
-      alert("That was a bit much..."); // Show an alert if the text length is too long
+      errorMessage = "That was a bit much..."; 
     }
     else{
     const formData = $(this).serialize();
@@ -66,7 +67,20 @@ $(document).ready(() => {
     })
     .catch((err) =>console.log(err))
   }
+    displayErrorMessage(errorMessage);
   });
+
+  function displayErrorMessage(message) {
+    const $errorElement = $("#error-message");
+    if (message) {
+      $errorElement.text(message);
+      $errorElement.slideDown(); 
+    } else {
+      $errorElement.slideUp(); 
+    }
+  }
+  
+
 
   function loadTweets() {
   $.ajax({
